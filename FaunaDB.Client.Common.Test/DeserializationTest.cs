@@ -4,8 +4,6 @@ using FaunaDB.Types;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-using static FaunaDB.Query.Language;
-
 namespace Test
 {
     [TestFixture] public class DeserializationTest
@@ -219,8 +217,8 @@ namespace Test
         public void TestQuery()
         {
             AssertJsonEqual(
-                new QueryV(new Dictionary<string, Expr> { { "lambda", "x" }, { "expr", Add(Var("x"), 1) } }),
-                "{\"@query\":{\"lambda\":\"x\",\"expr\":{\"add\":[{\"var\":\"x\"},1]}}}"
+                new QueryV(new Dictionary<string, Expr> { { "lambda", "x" }, { "expr", 1 } }),
+                "{\"@query\":{\"lambda\":\"x\",\"expr\":1}}"
             );
         }
     }

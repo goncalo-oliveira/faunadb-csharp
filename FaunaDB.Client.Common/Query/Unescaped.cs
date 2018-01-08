@@ -7,7 +7,7 @@ using FaunaDB.Collections;
 
 namespace FaunaDB.Query
 {
-    class UnescapedObject : Expr
+    internal class UnescapedObject : Expr
     {
         public static readonly UnescapedObject Empty =
             new UnescapedObject(ImmutableDictionary<string, Expr>.Empty);
@@ -62,7 +62,7 @@ namespace FaunaDB.Query
             new UnescapedObject(ImmutableDictionary.Of(key1, value1, key2, value2, key3, value3, key4, value4, key5, value5, key6, value6, key7, value7));
     }
 
-    class UnescapedArray : Expr
+    internal class UnescapedArray : Expr
     {
         public static readonly UnescapedArray Empty =
             new UnescapedArray(new List<Expr>());

@@ -8,7 +8,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using FaunaDB.Collections;
 
 namespace FaunaDB.Client
 {
@@ -76,7 +75,7 @@ namespace FaunaDB.Client
         }
 
         static IReadOnlyDictionary<string, IEnumerable<string>> ToDictionary(HttpResponseHeaders headers) =>
-            new ImmutableDictionary<string, IEnumerable<string>>(headers);
+            headers.ToDictionary(x => x.Key, y => y.Value);
 
         /// <summary>
         /// Encodes secret string using base64.

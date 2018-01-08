@@ -1,4 +1,6 @@
-﻿namespace FaunaDB.Query
+﻿using System;
+
+namespace FaunaDB.Query
 {
     public partial struct Language
     {
@@ -25,6 +27,26 @@
             Nanosecond
         }
 
+        private static Expr ToExpr(TimeUnit timeUnit)
+        {
+            switch (timeUnit)
+            {
+                case TimeUnit.Microsecond:
+                    return "microsecond";
+
+                case TimeUnit.Millisecond:
+                    return "millisecond";
+
+                case TimeUnit.Nanosecond:
+                    return "nanosecond";
+
+                case TimeUnit.Second:
+                    return "second";
+            }
+
+            throw new ArgumentException("Invalid time unit value");
+        }
+
         /// <summary>
         /// Creates a new Epoch expression.
         /// <para>
@@ -32,7 +54,7 @@
         /// </para>
         /// </summary>
         public static Expr Epoch(Expr number, TimeUnit unit) =>
-            Epoch(number, (Expr)unit);
+            Epoch(number, ToExpr(unit));
 
         /// <summary>
         /// Creates a new Epoch expression.

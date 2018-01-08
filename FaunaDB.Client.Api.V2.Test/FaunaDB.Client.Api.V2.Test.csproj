@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}</ProjectGuid>
+    <ProjectGuid>{0cb5d1f9-958c-4af9-93ed-4927e0004d35}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FaunaDB.Client.Test</RootNamespace>
-    <AssemblyName>FaunaDB.Client.Test</AssemblyName>
+    <RootNamespace>FaunaDB.Client.Api.V2.Test</RootNamespace>
+    <AssemblyName>FaunaDB.Client.Api.V2.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -74,29 +74,28 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeserializationTest.cs" />
-    <Compile Include="FieldTest.cs" />
     <Compile Include="ClientTest.cs" />
-    <Compile Include="OperatorTest.cs" />
     <Compile Include="SerializationTest.cs" />
     <Compile Include="TestCase.cs" />
-    <Compile Include="ErrorsTest.cs" />
     <Compile Include="PageTest.cs" />
-    <Compile Include="EncoderTest.cs" />
-    <Compile Include="DecoderTest.cs" />
+    <Compile Include="ErrorsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\FaunaDB.Client\FaunaDB.Client.csproj">
-      <Project>{F668B011-79C7-474B-8594-E0D2785F83F8}</Project>
-      <Name>FaunaDB.Client</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="testConfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaunaDB.Client.Api.V2\FaunaDB.Client.Api.V2.csproj">
+      <Project>{D2AC9BDB-0163-4065-AEC3-682E47358D5C}</Project>
+      <Name>FaunaDB.Client.Api.V2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaunaDB.Client.Common\FaunaDB.Client.Common.csproj">
+      <Project>{F668B011-79C7-474B-8594-E0D2785F83F8}</Project>
+      <Name>FaunaDB.Client.Common</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

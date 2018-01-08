@@ -1,10 +1,9 @@
-﻿using FaunaDB.Collections;
+﻿using System.Collections.Generic;
 using FaunaDB.Types;
 using NUnit.Framework;
 using System;
 
 using static FaunaDB.Types.Option;
-using System.Collections.Generic;
 
 namespace Test
 {
@@ -12,7 +11,7 @@ namespace Test
     {
         [Test] public void TestObjectKey()
         {
-            var obj = ObjectV.With("foo", "bar");
+            var obj = ObjectV.With("foo", StringV.Of("bar"));
 
             Assert.AreEqual(StringV.Of("bar"),
                 obj.Get(Field.At("foo")));

@@ -3,16 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.25302.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client", "FaunaDB.Client\FaunaDB.Client.csproj", "{F668B011-79C7-474B-8594-E0D2785F83F8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client.Test", "FaunaDB.Client.Test\FaunaDB.Client.Test.csproj", "{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F61FD463-D09F-4B5E-B6B5-7E891C8C87F2}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\build.ps1 = Scripts\build.ps1
 		Scripts\nuget-pack.ps1 = Scripts\nuget-pack.ps1
 		Scripts\nuget-push.ps1 = Scripts\nuget-push.ps1
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client.Common", "FaunaDB.Client.Common\FaunaDB.Client.Common.csproj", "{F668B011-79C7-474B-8594-E0D2785F83F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client.Common.Test", "FaunaDB.Client.Common.Test\FaunaDB.Client.Common.Test.csproj", "{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client.Api.V2", "FaunaDB.Client.Api.V2\FaunaDB.Client.Api.V2.csproj", "{D2AC9BDB-0163-4065-AEC3-682E47358D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaunaDB.Client.Api.V2.Test", "FaunaDB.Client.Api.V2.Test\FaunaDB.Client.Api.V2.Test.csproj", "{0CB5D1F9-958C-4AF9-93ED-4927E0004D35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +32,14 @@ Global
 		{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC9D4AE2-C260-4EC0-A5F4-3A5CCCFB99A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2AC9BDB-0163-4065-AEC3-682E47358D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2AC9BDB-0163-4065-AEC3-682E47358D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2AC9BDB-0163-4065-AEC3-682E47358D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2AC9BDB-0163-4065-AEC3-682E47358D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB5D1F9-958C-4AF9-93ED-4927E0004D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB5D1F9-958C-4AF9-93ED-4927E0004D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB5D1F9-958C-4AF9-93ED-4927E0004D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB5D1F9-958C-4AF9-93ED-4927E0004D35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,11 +48,6 @@ Global
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$1.ResourceNamePolicy = FileFormatDefault
 		$0.TextStylePolicy = $4
-		$4.FileWidth = 120
-		$4.TabsToSpaces = False
-		$4.inheritsSet = VisualStudio
-		$4.inheritsScope = text/plain
 	EndGlobalSection
 EndGlobal

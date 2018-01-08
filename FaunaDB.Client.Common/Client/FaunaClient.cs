@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FaunaDB.Collections;
 using FaunaDB.Errors;
 using FaunaDB.Query;
 using FaunaDB.Types;
@@ -97,11 +96,8 @@ namespace FaunaDB.Client
         /// </summary>
         /// <param name="expressions">the list of query expressions to be sent to FaunaDB.</param>
         /// <returns>a <see cref="Task"/> containing an ordered list of root response nodes.</returns>
-        public async Task<IEnumerable<Value>> Query(IEnumerable<Expr> expressions)
-        {
-            var response = await Query(UnescapedArray.Of(expressions)).ConfigureAwait(false);
-            return response.Collect(Field.Root);
-        }
+        public async Task<IEnumerable<Value>> Query(IEnumerable<Expr> expressions) =>
+            await Query(expressions.ToArray()).ConfigureAwait(false);
 
         /// <summary>
         /// Check service health.
@@ -112,8 +108,11 @@ namespace FaunaDB.Client
         /// <param name="scope">Must be "node", "local", "global", or "all". Defaults to "global"</param>
         /// <param name="timeout">Time to wait for the ping to succeed, in milliseconds.</param>
         /// <returns>a <see cref="Task"/> with the message representing the result operation</returns>
-        public async Task<string> Ping(string scope = null, int? timeout = null) =>
-            (string)await Execute(HttpMethodKind.Get, "ping", query: ImmutableDictionary.Of("scope", scope, "timeout", timeout?.ToString())).ConfigureAwait(false);
+        public async Task<string> Ping(string scope = null, int? timeout = null)
+        {
+            var options = new Dictionary<string, string> { { "scope", scope }, { "timeout", timeout?.ToString() }};
+            return (string)await Execute(HttpMethodKind.Get, "ping", query: options).ConfigureAwait(false);
+        }
 
         async Task<Value> Execute(HttpMethodKind action, string path, Expr data = null, IReadOnlyDictionary<string, string> query = null)
         {

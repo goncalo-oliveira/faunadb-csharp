@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes.
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("FaunaDB.Client")]
+[assembly: AssemblyTitle("FaunaDB.Client.Api.V2")]
 [assembly: AssemblyCompany("Fauna, Inc.")]
 [assembly: AssemblyProduct("C# Driver for FaunaDB")]
 [assembly: AssemblyDescription("C# Driver for FaunaDB")]
@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
-[assembly: InternalsVisibleTo("FaunaDB.Client.Test")]
+[assembly: InternalsVisibleTo("FaunaDB.Client.Api.V2.Test")]
 #else
 [assembly: AssemblyConfiguration("Release")]
 #endif

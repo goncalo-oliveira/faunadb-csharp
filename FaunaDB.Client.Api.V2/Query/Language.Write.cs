@@ -1,4 +1,7 @@
-﻿namespace FaunaDB.Query
+﻿using System;
+using FaunaDB.Types;
+
+namespace FaunaDB.Query
 {
     public partial struct Language
     {
@@ -50,6 +53,20 @@
             Delete
         }
 
+        private static Expr ToExpr(ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.Create:
+                    return StringV.Of("create");
+
+                case ActionType.Delete:
+                    return StringV.Of("delete");
+            }
+
+            throw new ArgumentException("Invalid action value");
+        }
+
         /// <summary>
         /// Creates a new Insert expression.
         /// <para>
@@ -57,7 +74,7 @@
         /// </para>
         /// </summary>
         public static Expr Insert(Expr @ref, Expr ts, ActionType action, Expr @params) =>
-            Insert(@ref, ts, (Expr)action, @params);
+            Insert(@ref, ts, ToExpr(action), @params);
 
         /// <summary>
         /// Creates a new Insert expression.
@@ -75,7 +92,7 @@
         /// </para>
         /// </summary>
         public static Expr Remove(Expr @ref, Expr ts, ActionType action) =>
-            Remove(@ref, ts, (Expr)action);
+            Remove(@ref, ts, ToExpr(action));
 
         /// <summary>
         /// Creates a new Remove expression.

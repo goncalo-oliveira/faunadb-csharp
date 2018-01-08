@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F668B011-79C7-474B-8594-E0D2785F83F8}</ProjectGuid>
+    <ProjectGuid>{d2ac9bdb-0163-4065-aec3-682e47358d5c}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FaunaDB.Client</RootNamespace>
-    <AssemblyName>FaunaDB.Client</AssemblyName>
+    <RootNamespace>FaunaDB.Client.Api.V2</RootNamespace>
+    <AssemblyName>FaunaDB.Client.Api.V2</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Release\FaunaDB.Client.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\FaunaDB.Client.Api.V2.XML</DocumentationFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -40,7 +40,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Query\Expr.Operators.cs" />
     <Compile Include="Query\Language.Sets.Join.cs" />
     <Compile Include="Query\Language.Authentication.cs" />
     <Compile Include="Query\Language.Basic.cs" />
@@ -57,41 +56,15 @@
     <Compile Include="Query\Language.TimeDate.cs" />
     <Compile Include="Query\Language.Values.Obj.cs" />
     <Compile Include="Query\Language.Write.cs" />
-    <Compile Include="Query\Unescaped.cs" />
     <Compile Include="Query\Language.Basic.Let.cs" />
-    <Compile Include="Types\Field.cs" />
-    <Compile Include="Types\Option.cs" />
-    <Compile Include="Types\Path.cs" />
-    <Compile Include="Types\Result.cs" />
-    <Compile Include="Utils\HashUtil.cs" />
-    <Compile Include="Query\Expr.cs" />
     <Compile Include="Query\Language.Values.cs" />
-    <Compile Include="Types\ObjectV.cs" />
-    <Compile Include="Types\ArrayV.cs" />
-    <Compile Include="Types\Value.cs" />
-    <Compile Include="Types\Json.cs" />
-    <Compile Include="Types\ScalarValue.cs" />
-    <Compile Include="Types\NullV.cs" />
-    <Compile Include="Client\FaunaClient.cs" />
-    <Compile Include="Client\RequestResult.cs" />
-    <Compile Include="Errors\FaunaException.cs" />
-    <Compile Include="Client\HttpMethodKind.cs" />
-    <Compile Include="Client\DefaultClientIO.cs" />
-    <Compile Include="Client\IClientIO.cs" />
-    <Compile Include="Errors\QueryError.cs" />
-    <Compile Include="Errors\ValidationFailure.cs" />
-    <Compile Include="Errors\QueryErrorResponse.cs" />
-    <Compile Include="Collections\ImmutableDictionary.cs" />
-    <Compile Include="Collections\DictionaryExtension.cs" />
     <Compile Include="Query\PageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\BytesV.cs" />
-    <Compile Include="Types\RefParser.cs" />
-    <Compile Include="Types\RefV.cs" />
-    <Compile Include="Types\Encoder.cs" />
-    <Compile Include="Types\Attributes.cs" />
-    <Compile Include="Types\Decoder.cs" />
-    <Compile Include="Types\Reflection.cs" />
-    <Compile Include="Types\QueryV.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaunaDB.Client.Common\FaunaDB.Client.Common.csproj">
+      <Project>{F668B011-79C7-474B-8594-E0D2785F83F8}</Project>
+      <Name>FaunaDB.Client.Common</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
