@@ -29,6 +29,7 @@ autom4te.cache/
 tarballs/
 test-results/
 Thumbs.db
+project.lock.json
 
 #Mac bundle stuff
 *.dmg
