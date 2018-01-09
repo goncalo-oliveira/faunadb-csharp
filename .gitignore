@@ -5,6 +5,7 @@
 [Oo]bj/
 [Bb]in/
 packages/
+tools/
 TestResults/
 SigningKey/
 
@@ -17,6 +18,7 @@ Makefile.in
 *.pidb
 *.userprefs
 *.usertasks
+*.nuget.props
 .vs/
 config.log
 config.make
